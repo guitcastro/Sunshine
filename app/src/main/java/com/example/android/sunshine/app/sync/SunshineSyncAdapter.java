@@ -425,7 +425,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // we can enable inexact timers in our periodic sync
             SyncRequest request = new SyncRequest.Builder().
-                    syncPeriodic(syncInterval, flexTime).
+                    syncPeriodic(syncInterval, flexTime).setExtras(new Bundle()).
                     setSyncAdapter(account, authority).build();
             ContentResolver.requestSync(request);
         } else {
